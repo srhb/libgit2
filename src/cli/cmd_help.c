@@ -43,7 +43,7 @@ static void print_commands(void)
 	printf("These are the %s commands available:\n\n", PROGRAM_NAME);
 
 	for (cmd = cli_cmds; cmd->name; cmd++)
-		printf("   %-8s  %s\n", cmd->name, cmd->desc);
+		printf("   %-11s  %s\n", cmd->name, cmd->desc);
 
 	printf("\nSee '%s help <command>' for more information on a specific command.\n", PROGRAM_NAME);
 }
