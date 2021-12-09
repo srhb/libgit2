@@ -517,18 +517,6 @@ typedef int GIT_CALLBACK(git_url_resolve_cb)(git_buf *url_resolved, const char *
 #endif
 
 /**
- * Callback invoked immediately before we attempt to connect to the
- * given url.  Callers may change the URL before the connection by
- * calling `git_remote_set_instance_url` in the callback.
- *
- * @param remote The remote to be connected
- * @param direction GIT_DIRECTION_FETCH or GIT_DIRECTION_PUSH
- * @param payload Payload provided by the caller
- * @return 0 on success, or an error
- */
-typedef int GIT_CALLBACK(git_remote_ready_cb)(git_remote *remote, int direction, void *payload);
-
-/**
  * The callback settings structure
  *
  * Set the callbacks to be called by the remote when informing the user
@@ -611,11 +599,6 @@ struct git_remote_callbacks {
 	 * to auto-detect.
 	 */
 	git_transport_cb transport;
-
-	/**
-	 * Callback when the remote is ready to connect.
-	 */
-	git_remote_ready_cb remote_ready;
 
 	/**
 	 * This will be passed to each of the callbacks in this struct
